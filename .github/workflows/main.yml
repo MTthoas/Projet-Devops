@@ -25,8 +25,8 @@ jobs:
         run: npm install
       - name: Build the project
         run: npm run build
-      - name: Build the Docker image
-        run: docker-compose build --no-cache 
+      - name: Build Docker image
+        run: docker build -t my-express-app .
 
   test: 
     needs: build
