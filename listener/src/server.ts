@@ -11,7 +11,7 @@ const containerName = 'listener';
 
 
 function pullImage() {
-    
+
     exec(`docker pull ${repo}`, (err: any, stdout: any, stderr: any) => {
         if(err) {
             return;
@@ -21,7 +21,7 @@ function pullImage() {
 }
 
 function startContainer(containerName: string, image: string) {
-    exec(`docker run -d --name ${containerName} ${image}`, (runErr: any, runStdout: any, runStderr: any) => {
+    exec(`docker run -d --name ${containerName}`, (runErr: any, runStdout: any, runStderr: any) => {
         if (runErr) {
             console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
             return;
