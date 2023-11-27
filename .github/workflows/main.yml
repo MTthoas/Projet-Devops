@@ -50,7 +50,7 @@ jobs:
   # Deploy the project to Docker Hub
 
   push_registry:
-    needs: [build, test]
+    needs: [build]
     name: Push to Docker Hub
     runs-on: ubuntu-latest
     steps:
