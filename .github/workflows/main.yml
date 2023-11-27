@@ -13,6 +13,9 @@ env:
   APP_URL: http://localhost:5111
 
 jobs:
+
+  # Build the project and create a Docker image
+
   build: 
     runs-on: ubuntu-latest
     steps:
@@ -28,19 +31,18 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-express-app .
 
+  # Test the project using Jest
+
   test: 
     needs: build
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
       - name: Install dependencies
         run: npm install
       - name: Run unit tests
         run: npm test
+
+  # Deploy the project to Docker Hub
 
   push_registry:
     needs: [build, test]
