@@ -9,7 +9,7 @@ const { exec } = require('child_process');
 const app = (0, express_1.default)();
 const port = 5111;
 app.use(body_parser_1.default.json());
-const repo = 'mtthoas/projet-devops:develop';
+const repo = 'mtthoas/projet-devops:main';
 const containerName = 'listener';
 function pullImage() {
     exec(`docker pull ${repo}`, (err, stdout, stderr) => {
@@ -20,12 +20,12 @@ function pullImage() {
     });
 }
 function startContainer(containerName, image) {
-    exec(`docker run -d --name ${containerName} ${image} 2>&1`, (runErr, runStdout, runStderr) => {
-        if (runErr) {
-            console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
-            return;
-        }
-        console.log(`Conteneur ${containerName} démarré avec l'image ${image}`);
+    exec(`docker run -d --name ${containerName} mtthoas/projet-devops:main`, (runErr, runStdout, runStderr) => {
+        // if (runErr) {
+        //     console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
+        //     return;
+        // }
+        console.log(`Conteneur ${containerName} démarré avec l'image mtthoas/projet-devops:main`);
     });
 }
 function stopAndRemoveContainer(containerName) {

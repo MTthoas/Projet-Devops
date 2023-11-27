@@ -6,7 +6,7 @@ const app = express();
 const port = 5111; 
 
 app.use(bodyParser.json());
-const repo = 'mtthoas/projet-devops:develop';
+const repo = 'mtthoas/projet-devops:main';
 const containerName = 'listener';
 
 
@@ -21,12 +21,12 @@ function pullImage() {
 }
 
 function startContainer(containerName: string, image: string) {
-    exec(`docker run -d --name ${containerName} ${image} 2>&1`, (runErr: any, runStdout: any, runStderr: any) => {
-        if (runErr) {
-            console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
-            return;
-        }
-        console.log(`Conteneur ${containerName} démarré avec l'image ${image}`);
+    exec(`docker run -d --name ${containerName} mtthoas/projet-devops:main`, (runErr: any, runStdout: any, runStderr: any) => {
+        // if (runErr) {
+        //     console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
+        //     return;
+        // }
+        console.log(`Conteneur ${containerName} démarré avec l'image mtthoas/projet-devops:main`);
     });
 }
 

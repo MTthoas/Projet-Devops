@@ -1,4 +1,4 @@
 node_modules
 package-lock.json
 dist
-listener/dist
+listener/dist/*
