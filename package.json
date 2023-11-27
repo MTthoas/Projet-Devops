@@ -8,7 +8,12 @@
   },
   "scripts": {
     "start": "ts-node src/app.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
