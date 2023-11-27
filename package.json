@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "ts-node src/app.ts",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "tsc"
   },
   "jest": {
