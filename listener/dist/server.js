@@ -20,7 +20,7 @@ function pullImage() {
     });
 }
 function startContainer(containerName, image) {
-    exec(`docker run -d --name ${containerName}`, (runErr, runStdout, runStderr) => {
+    exec(`docker run -d --name ${containerName} ${image} 2>&1`, (runErr, runStdout, runStderr) => {
         if (runErr) {
             console.error(`Erreur lors du démarrage du conteneur ${containerName}: ${runErr}`);
             return;
